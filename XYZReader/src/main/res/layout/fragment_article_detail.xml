@@ -22,7 +22,7 @@
                 <ImageView
                     android:id="@+id/photo"
                     android:layout_width="match_parent"
-                    android:layout_height="250dp"
+                    android:layout_height="@dimen/picture_height"
                      />
 
                 <View
@@ -39,8 +39,9 @@
                 android:layout_gravity="center_horizontal"
                 android:maxWidth="@dimen/detail_card_max_width"
                 android:background="#fff"
-                android:elevation="2dp"
+                android:elevation="@dimen/detail_elevation"
                 android:layout_marginTop="@dimen/detail_card_top_margin">
+
 
                 <LinearLayout
                     android:id="@+id/meta_bar"
@@ -54,7 +55,7 @@
                     android:paddingTop="@dimen/detail_metabar_vert_padding"
                     android:paddingBottom="@dimen/detail_metabar_vert_padding"
                     android:layout_marginBottom="@dimen/detail_metabar_vert_padding"
-                    android:elevation="6dp">
+                    android:elevation="@dimen/detail_layout_elevation">
 
                     <TextView
                         android:id="@+id/article_title"
