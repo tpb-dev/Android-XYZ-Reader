@@ -7,7 +7,10 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.Loader;
 import android.database.Cursor;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
@@ -60,9 +63,18 @@ public class ArticleListActivity extends AppCompatActivity implements
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
 
 
-        final View toolbarContainerView = findViewById(R.id.toolbar_container);
+        final View toolbarContainerView = findViewById(R.id.collapse_toolbar);
 
         mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_refresh_layout);
+
+        Snackbar snackbar = Snackbar.make(mSwipeRefreshLayout, "Welcome to XYZ Reader", Snackbar.LENGTH_LONG);
+        View sbView = snackbar.getView();
+
+        String color = "#" + Integer.toHexString(ContextCompat.getColor(this, R.color.blue_green_background) & 0x00ffffff);
+
+        sbView.setBackgroundColor(Color.parseColor(color));
+
+        snackbar.show();
 
         mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         getLoaderManager().initLoader(0, null, this);
